@@ -1,0 +1,41 @@
+https://www.kaggle.com/datasets
+
+https://www.kaggle.com/datasets/ayeshaimran123/data-science-student-marks
+
+
+Way1: download the data
+df = pd.read_csv("data_science_student_marks.csv")
+df 
+
+way2: without downloading the data
+# Install dependencies as needed:
+# pip install kagglehub[pandas-datasets]
+import kagglehub
+from kagglehub import KaggleDatasetAdapter
+
+# Set the path to the file you'd like to load
+file_path = "data_science_student_marks.csv"
+
+# Load the latest version
+df = kagglehub.load_dataset(
+  KaggleDatasetAdapter.PANDAS,
+  "ayeshaimran123/data-science-student-marks",
+  file_path,
+)
+
+df
+
+
+# way 3
+
+import kagglehub
+import os 
+import pandas as pd
+# Download latest version
+path = kagglehub.dataset_download("ayeshaimran123/data-science-student-marks")
+
+file_path = os.path.join(path, 'data_science_student_marks.csv')
+df = pd.read_csv(file_path)
+
+df
+
